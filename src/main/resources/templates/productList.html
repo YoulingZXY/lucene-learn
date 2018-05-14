@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1" cellspacing="0">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Price</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${productModel.productList.size()} eq 0" align="center">
+            <td colspan="5">no product</td>
+        </tr>
+        <tr th:each="product : ${productModel.productList}">
+            <td th:text="${product.id}"></td>
+            <td><span th:utext='${product.name}'></span></td>
+            <td th:text="${product.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
